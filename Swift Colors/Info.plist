@@ -27,9 +27,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>This app will use the camera to import an image to generate a color palette.</string>
+	<string>This app requires access to the camera to allow users to take photos for color analysis.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app will use photo library to import an image to generate a color palette.</string>
+	<string>This app requires access to your photo library to select images for color analysis.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs to save color-analyzed images to your photo library.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -165,23 +167,7 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
+
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
