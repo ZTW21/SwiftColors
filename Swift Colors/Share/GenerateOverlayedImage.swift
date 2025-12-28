@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  GenerateOverlayedImage.swift
 //  
 //
 //  Created by Zack Wilson on 2/8/24.

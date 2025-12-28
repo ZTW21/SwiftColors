@@ -1,5 +1,10 @@
 import SwiftUI
 
+struct ShareItems: Identifiable {
+    let id = UUID()
+    let items: [Any]
+}
+
 struct ContentView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
@@ -11,8 +16,7 @@ struct ContentView: View {
     @State private var toastMessage = ""
     @State private var opacity: Double = 0
     @State private var paletteGenerated = false;
-    @State private var showingShareSheet = false
-    @State private var itemsToShare: [Any] = []
+    @State private var shareItems: ShareItems?
     
     @StateObject private var interstitialManager = InterstitialAdManager()
 
@@ -54,8 +58,8 @@ struct ContentView: View {
                                 .font(.title) // Adjust the size as needed
                                 .foregroundColor(.blue) // Adjust the color as needed
                         }
-                        .sheet(isPresented: $showingShareSheet) {
-                            ShareSheet(itemsToShare: itemsToShare)
+                        .sheet(item: $shareItems) { item in
+                            ShareSheet(itemsToShare: item.items)
                         }
                     }
                 }
@@ -280,26 +284,15 @@ struct ContentView: View {
     
     // Share function that waits for the overlay image
     func shareImage() {
-        print("Starting shareImage...")
-        guard let originalImage = self.inputImage else {
-            print("inputImage is nil")
-            return
-        }
+        guard let originalImage = self.inputImage else { return }
         
         let uiPaletteColors = self.uiPaletteColors
-        print("Palette colors count: \(uiPaletteColors.count)")
         
         generateOverlayedImage(with: uiPaletteColors, for: originalImage) { overlayedImage in
-            guard let overlayedImage = overlayedImage else {
-                print("overlayedImage is nil")
-                return
-            }
-            print("Generated overlayed image successfully. Size: \(overlayedImage.size)")
-            self.itemsToShare = [overlayedImage]
-            DispatchQueue.main.async {
-                print("Asserting showingShareSheet = true")
-                self.showingShareSheet = true
-            }
+            guard let overlayedImage = overlayedImage else { return }
+            
+            // Set the identifiable item to trigger the sheet
+            self.shareItems = ShareItems(items: [overlayedImage])
         }
     }
 
