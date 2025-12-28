@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var paletteGenerated = false;
     @State private var showingShareSheet = false
     @State private var itemsToShare: [Any] = []
+    
+    @StateObject private var interstitialManager = InterstitialAdManager()
 
     
     @State private var lastCopiedColor: SwiftUI.Color = SwiftUI.Color.gray
@@ -96,6 +98,9 @@ struct ContentView: View {
                     }
                 }
                 .padding() // Padding around the entire grid
+                
+                BannerAd()
+                    .frame(width: 320, height: 50)
             }
             if showingToast {
                 HStack(spacing: 10) {
@@ -165,6 +170,9 @@ struct ContentView: View {
                         print("Color \(index):", color.description)
                     }
                     paletteGenerated = true;
+                    
+                    // Show interstitial ad after palette generation
+                    self.interstitialManager.showAd()
                 } else {
                     print("Not enough dominant colors were extracted.")
                 }
@@ -272,14 +280,24 @@ struct ContentView: View {
     
     // Share function that waits for the overlay image
     func shareImage() {
-        guard let originalImage = self.inputImage else { return }
+        print("Starting shareImage...")
+        guard let originalImage = self.inputImage else {
+            print("inputImage is nil")
+            return
+        }
         
         let uiPaletteColors = self.uiPaletteColors
+        print("Palette colors count: \(uiPaletteColors.count)")
         
         generateOverlayedImage(with: uiPaletteColors, for: originalImage) { overlayedImage in
-            guard let overlayedImage = overlayedImage else { return }
+            guard let overlayedImage = overlayedImage else {
+                print("overlayedImage is nil")
+                return
+            }
+            print("Generated overlayed image successfully. Size: \(overlayedImage.size)")
             self.itemsToShare = [overlayedImage]
             DispatchQueue.main.async {
+                print("Asserting showingShareSheet = true")
                 self.showingShareSheet = true
             }
         }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142EE21C2F008EFB00009EC6 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 142EE21B2F008EFB00009EC6 /* GoogleMobileAds */; };
+		142EE21F2F0092A500009EC6 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EE21D2F0092A500009EC6 /* BannerAd.swift */; };
+		142EE2202F0092A500009EC6 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EE21E2F0092A500009EC6 /* InterstitialAd.swift */; };
 		14B46AD92F00863600D4E881 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B46AD72F00863600D4E881 /* Binding.swift */; };
 		14B46ADA2F00863600D4E881 /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B46AD82F00863600D4E881 /* MyApp.swift */; };
 		14B46ADF2F00879E00D4E881 /* MMCQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B46ADC2F00879E00D4E881 /* MMCQ.swift */; };
@@ -22,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142EE21D2F0092A500009EC6 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		142EE21E2F0092A500009EC6 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		14B46AD72F00863600D4E881 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		14B46AD82F00863600D4E881 /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		14B46ADB2F00879E00D4E881 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142EE21C2F008EFB00009EC6 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,8 @@
 		98B38E78262FB27B00BBED57 /* Swift Colors */ = {
 			isa = PBXGroup;
 			children = (
+				142EE21D2F0092A500009EC6 /* BannerAd.swift */,
+				142EE21E2F0092A500009EC6 /* InterstitialAd.swift */,
 				14B46AE42F0087AA00D4E881 /* Share */,
 				14B46ADE2F00879E00D4E881 /* MMCQ */,
 				14B46AD72F00863600D4E881 /* Binding.swift */,
@@ -153,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 98B38E6D262FB27B00BBED57;
+			packageReferences = (
+				142EE21A2F008EFB00009EC6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 98B38E77262FB27B00BBED57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142EE21F2F0092A500009EC6 /* BannerAd.swift in Sources */,
+				142EE2202F0092A500009EC6 /* InterstitialAd.swift in Sources */,
 				98F01A8726363B0500732344 /* ImagePicker.swift in Sources */,
 				98B38E7E262FB27B00BBED57 /* ContentView.swift in Sources */,
 				14B46AD92F00863600D4E881 /* Binding.swift in Sources */,
@@ -396,6 +409,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		142EE21A2F008EFB00009EC6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		142EE21B2F008EFB00009EC6 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 142EE21A2F008EFB00009EC6 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98B38E6E262FB27B00BBED57 /* Project object */;
 }
