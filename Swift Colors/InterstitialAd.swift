@@ -1,3 +1,10 @@
+//
+//  InterstitialAd.swift
+//  Swift Colors
+//
+//  Created by Zack Wilson on 12/27/25.
+//
+
 import GoogleMobileAds
 import SwiftUI
 
@@ -11,7 +18,7 @@ class InterstitialAdManager: NSObject, FullScreenContentDelegate, ObservableObje
     
     func loadAd() {
         let request = Request()
-        InterstitialAd.load(with: "ca-app-pub-3940256099942544/4411468910", request: request) { [weak self] ad, error in
+        InterstitialAd.load(with: "ca-app-pub-6185838911408177/2282962026", request: request) { [weak self] ad, error in
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 return
